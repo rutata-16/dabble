@@ -50,7 +50,7 @@ export function a1() {
         el('span', { class: 't-h2' }, 'Dabble'),
       ),
       blob,
-      el('h1', { class: 't-display welcome__title' }, fill('Time with her, without the planning')),
+      el('h1', { class: 't-display welcome__title' }, fill('Time with them, without the planning')),
       el('p', { class: 't-body c-secondary welcome__sub' }, fill('Ideas for tonight at home, and places worth the trip. Built around your child')),
       el('div', { class: 'welcome__actions' },
         button('Get started', { onClick: () => router.navigate('a2') }),
