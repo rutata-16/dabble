@@ -1,0 +1,232 @@
+/* Shell: stage, phone frame, status bar, screen container, evening glow.
+   The stage sits outside the phone, so it is the one place that reads primitives. */
+
+:root {
+  --status-h: calc(44px + env(safe-area-inset-top, 0px));
+  --nav-h: calc(84px + env(safe-area-inset-bottom, 0px));
+  --device-h: 844px;
+}
+
+body {
+  background: var(--prim-ink-100);
+  font: var(--text-body);
+  overflow: hidden;
+}
+
+.stage {
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xl);
+  padding: var(--space-2xl);
+}
+
+.device {
+  position: relative;
+  flex: none;
+  width: calc(var(--phone-width) + 24px);
+  height: calc(min(var(--device-h), 100dvh - 48px) + 24px);
+  padding: 12px;
+  border-radius: 60px;
+  background: var(--prim-ink-900);
+  box-shadow: 0 30px 80px rgba(30, 27, 24, 0.28), inset 0 0 0 2px var(--prim-ink-700);
+}
+
+.device > .phone {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 48px;
+  overflow: hidden;
+  isolation: isolate;
+  font: var(--text-body);
+}
+
+/* Below ~520px the frame drops and the app fills the viewport. */
+@media (max-width: 520px) {
+  body { background: var(--prim-ink-0); }
+  .stage { padding: 0; display: block; }
+  .device {
+    width: 100%;
+    height: 100dvh;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .device > .phone { border-radius: 0; }
+  .home-indicator { display: none; }
+}
+
+/* Status bar mock. Transparent so the evening glow shows through. */
+.status-bar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 30;
+  height: var(--status-h);
+  padding: env(safe-area-inset-top, 0px) var(--space-3xl) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  color: var(--color-text-primary);
+}
+
+.status-bar__time {
+  font: var(--text-small-strong);
+  font-size: 15px;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-bar__icons {
+  display: inline-flex;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.status-bar__icons .icon { font-size: 18px; }
+
+.phone[data-chrome="lock"] .status-bar { color: var(--color-text-primary); }
+
+.home-indicator {
+  position: absolute;
+  z-index: 60;
+  left: 50%;
+  bottom: var(--space-sm);
+  width: 134px;
+  height: 5px;
+  margin-left: -67px;
+  border-radius: var(--radius-full);
+  background: var(--color-text-primary);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Viewport and screens */
+.viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--status-h);
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+}
+
+.screen::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 320px;
+  background: var(--page-glow);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.screen > * { position: relative; z-index: 1; }
+
+.screen.has-nav { padding-bottom: var(--nav-h); }
+
+.screen__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.screen__scroll::-webkit-scrollbar { display: none; }
+
+.screen__body {
+  padding: var(--space-lg) var(--space-xl) var(--space-2xl);
+}
+
+.screen__footer {
+  flex: none;
+  padding: var(--space-md) var(--space-xl) calc(var(--space-2xl) + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background: var(--color-bg-page);
+}
+
+.screen.has-nav .screen__footer { padding-bottom: var(--space-lg); }
+
+.nav-slot {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 20;
+}
+
+/* Theme cross-fade */
+.phone.is-theming,
+.phone.is-theming * {
+  transition: background-color var(--dur-slow) var(--ease-std),
+              color var(--dur-slow) var(--ease-std),
+              border-color var(--dur-slow) var(--ease-std) !important;
+}
+
+@keyframes splash-in {
+  from { opacity: 0; transform: scale(0.82); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Splash */
+.splash {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  background: var(--color-bg-page);
+  transition: opacity var(--dur-slow) var(--ease-std), visibility 0s linear var(--dur-slow);
+}
+
+.splash::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 320px;
+  background: var(--page-glow);
+  pointer-events: none;
+}
+
+.splash__logo {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+  animation: splash-in 520ms var(--ease-out) both;
+}
+
+.splash__word {
+  position: relative;
+  animation: splash-in 520ms var(--ease-out) 90ms both;
+  font: var(--text-display);
+  letter-spacing: var(--text-display-tracking);
+  color: var(--color-text-primary);
+}
+
+.splash.is-done {
+  opacity: 0;
+  visibility: hidden;
+}

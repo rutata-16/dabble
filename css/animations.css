@@ -1,0 +1,44 @@
+/* Named keyframes and route-transition classes. */
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes sheet-down { from { transform: translateY(0); } to { transform: translateY(100%); } }
+
+@keyframes toast-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes toast-out { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(8px); } }
+
+@keyframes pop {
+  0% { transform: scale(0.4); }
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shimmer { to { transform: translateX(100%); } }
+
+@keyframes slide-in-right { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes slide-out-left { from { transform: translateX(0); } to { transform: translateX(-28%); opacity: 0.6; } }
+@keyframes slide-in-left { from { transform: translateX(-28%); opacity: 0.6; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slide-out-right { from { transform: translateX(0); } to { transform: translateX(100%); } }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* Route transitions */
+.route-enter-forward { animation: slide-in-right var(--dur-base) var(--ease-std) both; z-index: 2; box-shadow: var(--shadow-sheet); }
+.route-exit-forward { animation: slide-out-left var(--dur-base) var(--ease-std) both; z-index: 1; }
+.route-enter-back { animation: slide-in-left var(--dur-base) var(--ease-std) both; z-index: 1; }
+.route-exit-back { animation: slide-out-right var(--dur-base) var(--ease-std) both; z-index: 2; }
+.route-enter-fade { animation: fade-in var(--dur-base) var(--ease-std) both; z-index: 2; }
+.route-exit-fade { animation: fade-out var(--dur-base) var(--ease-std) both; z-index: 1; }
+
+.is-shaking { animation: shake 320ms var(--ease-std); }
+.pop-in { animation: pop var(--dur-base) var(--ease-out); }
+
+.nav-enter { animation: fade-in var(--dur-base) var(--ease-std); }

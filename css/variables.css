@@ -1,0 +1,196 @@
+/* Dabble tokens. Source of truth: Figma file 'Dabble-design-system'. Do not edit values here without updating Figma. */
+
+:root {
+  /* Primitives. Never reference these from components or screens. */
+  --prim-marigold-100: #FFE9A8;
+  --prim-marigold-500: #FFB800;
+  --prim-marigold-700: #9A6700;
+  --prim-marigold-800: #7A5300;
+  --prim-tomato-100: #FFD2C5;
+  --prim-tomato-500: #FF5B3A;
+  --prim-tomato-700: #C2310F;
+  --prim-tomato-800: #8A2108;
+  --prim-bubblegum-100: #FFCCE3;
+  --prim-bubblegum-500: #FF6FB5;
+  --prim-bubblegum-800: #82184A;
+  --prim-leaf-100: #BFEED2;
+  --prim-leaf-500: #22B573;
+  --prim-leaf-800: #0B5A37;
+  --prim-sky-100: #BFE0FF;
+  --prim-sky-500: #2F9BFF;
+  --prim-sky-800: #064A8A;
+  --prim-ink-0: #FFFFFF;
+  --prim-ink-100: #F4F4F6;
+  --prim-ink-200: #E4E2DF;
+  --prim-ink-300: #C9C5C0;
+  --prim-ink-500: #6E6862;
+  --prim-ink-700: #4A4540;
+  --prim-ink-900: #1E1B18;
+  --prim-dusk-950: #1C1240;
+  --prim-dusk-900: #2A1B5C;
+  --prim-plum-800: #3D2A7A;
+  --prim-plum-700: #523B98;
+  --prim-lavender-100: #E4DBFF;
+  --prim-lavender-300: #B9A3FF;
+  --prim-moonlight-50: #F6F2FF;
+  --prim-nightpink-500: #FF8AC9;
+  --prim-moon-400: #FFD45C;
+
+  /* Spacing, 4pt base */
+  --space-2xs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+  --space-5xl: 56px;
+
+  /* Radius */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+
+  /* Type */
+  --font-display: 'Baloo 2', system-ui, sans-serif;
+  --font-ui: 'Figtree', system-ui, sans-serif;
+  /* Handwriting. Moment captions only, nowhere else. */
+  --font-hand: 'Caveat', 'Segoe Print', cursive;
+  --text-display: 800 40px/44px var(--font-display);
+  --text-display-tracking: -1px;
+  --text-h1: 800 30px/34px var(--font-display);
+  --text-h1-tracking: -0.5px;
+  --text-h2: 700 24px/28px var(--font-display);
+  --text-h2-tracking: -0.25px;
+  --text-h3: 700 20px/24px var(--font-display);
+  --text-h3-tracking: 0;
+  --text-title: 600 17px/22px var(--font-ui);
+  --text-title-tracking: 0;
+  --text-body: 400 16px/24px var(--font-ui);
+  --text-body-tracking: 0;
+  --text-body-strong: 600 16px/24px var(--font-ui);
+  --text-body-strong-tracking: 0;
+  --text-small: 400 14px/20px var(--font-ui);
+  --text-small-tracking: 0;
+  --text-small-strong: 600 14px/20px var(--font-ui);
+  --text-small-strong-tracking: 0;
+  --text-button: 700 16px/20px var(--font-ui);
+  --text-button-tracking: 0;
+  --text-caption: 500 12px/16px var(--font-ui);
+  --text-caption-tracking: 0;
+  --text-overline: 700 12px/16px var(--font-ui);
+  --text-overline-tracking: 0.08em;
+  --text-caption-hand: 600 20px/22px var(--font-hand);
+
+  /* Motion */
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+  --ease-std: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+
+  /* Layout */
+  --phone-width: 390px;
+  --tap-min: 44px;
+}
+
+.phone {
+  /* Semantic colour, Day (default) */
+  --color-bg-page: var(--prim-ink-0);
+  --color-bg-surface: var(--prim-ink-100);
+  --color-bg-raised: var(--prim-ink-0);
+  --color-bg-brand: var(--prim-marigold-500);
+  --color-bg-scrim: var(--prim-ink-900);
+  --color-text-primary: var(--prim-ink-900);
+  --color-text-secondary: var(--prim-ink-700);
+  --color-text-muted: var(--prim-ink-500);
+  --color-text-on-brand: var(--prim-ink-900);
+  --color-text-on-action: var(--prim-ink-0);
+  --color-action-primary: var(--prim-marigold-500);
+  --color-action-selected: var(--prim-marigold-500);
+  --color-border-default: var(--prim-ink-200);
+  --color-border-strong: var(--prim-ink-900);
+  --color-icon-primary: var(--prim-ink-900);
+  --color-icon-muted: var(--prim-ink-500);
+  --color-icon-on-action: var(--prim-ink-0);
+  --color-tag-marigold-bg: var(--prim-marigold-100);
+  --color-tag-marigold-text: var(--prim-marigold-800);
+  --color-tag-tomato-bg: var(--prim-tomato-100);
+  --color-tag-tomato-text: var(--prim-tomato-800);
+  --color-tag-pink-bg: var(--prim-bubblegum-100);
+  --color-tag-pink-text: var(--prim-bubblegum-800);
+  --color-tag-leaf-bg: var(--prim-leaf-100);
+  --color-tag-leaf-text: var(--prim-leaf-800);
+  --color-tag-sky-bg: var(--prim-sky-100);
+  --color-tag-sky-text: var(--prim-sky-800);
+  --color-feedback-error-bg: var(--prim-tomato-100);
+  --color-feedback-error-text: var(--prim-tomato-700);
+  --color-feedback-success-bg: var(--prim-leaf-100);
+  --color-feedback-success-text: var(--prim-leaf-800);
+  --color-bg-card: var(--prim-ink-0);
+  --color-bg-card-strong: var(--prim-ink-0);
+  --color-bg-media: var(--prim-sky-100);
+  --color-border-card: var(--prim-ink-200);
+  --color-border-selected: var(--prim-ink-900);
+  --color-icon-on-bright: var(--prim-ink-900);
+  --color-text-on-primary: var(--prim-ink-900);
+  --shadow-card: 0 1px 2px rgba(30, 27, 24, 0.06), 0 6px 16px rgba(30, 27, 24, 0.08);
+  --shadow-sheet: 0 -8px 32px rgba(30, 27, 24, 0.14);
+  --scrim: rgba(30, 27, 24, 0.4);
+  --page-glow: none;
+  color: var(--color-text-primary);
+  background: var(--color-bg-page);
+}
+
+.phone[data-theme="evening"] {
+  /* Semantic colour, Evening: 18:00 to 05:59 local time */
+  --color-bg-page: var(--prim-dusk-900);
+  --color-bg-surface: var(--prim-plum-800);
+  --color-bg-raised: var(--prim-plum-700);
+  --color-bg-brand: var(--prim-moon-400);
+  --color-bg-scrim: var(--prim-dusk-950);
+  --color-text-primary: var(--prim-moonlight-50);
+  --color-text-secondary: var(--prim-lavender-100);
+  --color-text-muted: var(--prim-lavender-300);
+  --color-text-on-brand: var(--prim-dusk-900);
+  --color-text-on-action: var(--prim-dusk-900);
+  --color-action-primary: var(--prim-dusk-950);
+  --color-action-selected: var(--prim-moon-400);
+  --color-border-default: var(--prim-plum-700);
+  --color-border-strong: var(--prim-lavender-300);
+  --color-icon-primary: var(--prim-moonlight-50);
+  --color-icon-muted: var(--prim-lavender-300);
+  --color-icon-on-action: var(--prim-dusk-900);
+  --color-tag-marigold-bg: var(--prim-marigold-500);
+  --color-tag-marigold-text: var(--prim-ink-900);
+  --color-tag-tomato-bg: var(--prim-tomato-500);
+  --color-tag-tomato-text: var(--prim-ink-900);
+  --color-tag-pink-bg: var(--prim-nightpink-500);
+  --color-tag-pink-text: var(--prim-ink-900);
+  --color-tag-leaf-bg: var(--prim-leaf-500);
+  --color-tag-leaf-text: var(--prim-ink-900);
+  --color-tag-sky-bg: var(--prim-sky-500);
+  --color-tag-sky-text: var(--prim-ink-900);
+  --color-feedback-error-bg: var(--prim-plum-700);
+  --color-feedback-error-text: var(--prim-nightpink-500);
+  --color-feedback-success-bg: var(--prim-plum-700);
+  --color-feedback-success-text: var(--prim-leaf-100);
+  --color-bg-card: var(--prim-dusk-900);
+  --color-bg-card-strong: var(--prim-dusk-950);
+  --color-bg-media: var(--prim-plum-700);
+  --color-border-card: var(--prim-lavender-300);
+  --color-border-selected: var(--prim-moonlight-50);
+  --color-icon-on-bright: var(--prim-dusk-900);
+  --color-text-on-primary: var(--prim-moonlight-50);
+  --shadow-card: 0 1px 2px rgba(12, 6, 32, 0.3), 0 6px 16px rgba(12, 6, 32, 0.35);
+  --shadow-sheet: 0 -8px 32px rgba(12, 6, 32, 0.5);
+  --scrim: rgba(12, 6, 32, 0.6);
+  /* Corner glow, top right, behind content */
+  --page-glow: radial-gradient(circle at 92% -4%, rgba(176, 140, 255, 0.55) 0, rgba(255, 138, 201, 0.22) 90px, rgba(42, 27, 92, 0) 220px);
+}

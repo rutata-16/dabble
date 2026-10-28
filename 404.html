@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>Dabble</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Caveat:wght@600&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0..1,0&display=block">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dabba.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="stage">
+    <div class="device">
+      <div class="phone" id="phone">
+        <div class="status-bar" id="status-bar">
+          <span class="status-bar__time" id="status-time">9:41</span>
+          <span class="status-bar__icons" id="status-icons" aria-hidden="true"></span>
+        </div>
+        <main class="viewport" id="viewport" aria-label="Dabble"></main>
+        <div class="nav-slot" id="nav-slot"></div>
+        <div class="toast-region" id="toast-region" aria-live="polite"></div>
+        <div class="sheet-root" id="sheet-root"></div>
+        <div class="splash" id="splash" aria-hidden="true">
+          <img class="splash__logo" src="logo-mark.png" width="128" height="128" alt="" decoding="async">
+          <span class="splash__word">Dabble</span>
+        </div>
+        <div class="home-indicator" aria-hidden="true"></div>
+      </div>
+    </div>
+    <aside class="phone demo" id="demo" aria-label="Prototype controls"></aside>
+  </div>
+</body>
+</html>
