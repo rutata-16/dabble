@@ -160,7 +160,7 @@
   --color-text-muted: var(--prim-lavender-300);
   --color-text-on-brand: var(--prim-dusk-900);
   --color-text-on-action: var(--prim-dusk-900);
-  --color-action-primary: var(--prim-dusk-950);
+  --color-action-primary: var(--prim-moon-400);
   --color-action-selected: var(--prim-moon-400);
   --color-border-default: var(--prim-plum-700);
   --color-border-strong: var(--prim-lavender-300);
@@ -187,7 +187,7 @@
   --color-border-card: var(--prim-lavender-300);
   --color-border-selected: var(--prim-moonlight-50);
   --color-icon-on-bright: var(--prim-dusk-900);
-  --color-text-on-primary: var(--prim-moonlight-50);
+  --color-text-on-primary: var(--prim-dusk-900);
   --shadow-card: 0 1px 2px rgba(12, 6, 32, 0.3), 0 6px 16px rgba(12, 6, 32, 0.35);
   --shadow-sheet: 0 -8px 32px rgba(12, 6, 32, 0.5);
   --scrim: rgba(12, 6, 32, 0.6);
